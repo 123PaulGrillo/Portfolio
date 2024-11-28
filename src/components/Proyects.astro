@@ -1,0 +1,100 @@
+---
+import { promise } from "astro:schema";
+import HTML from "./icons/Html.astro";
+import CSS from "./icons/Css.astro";
+import Javascript from "./icons/JavaScript.astro";
+import Bootstrap from "./icons/Bootstrap.astro";
+import NodeJs from "./icons/NodeJs.astro";
+import Express from "./icons/Express.astro";
+
+const TAGS ={
+    HTML:{
+        name: "HTML",
+        class:"bg-white text-white",
+        icon:HTML,
+    },
+    CSS:{
+        name: "CSS",
+        class:"bg-white text-white",
+        icon:CSS,
+    },
+    Javascript:{
+        name:"JavaScript",
+        class:"bg-white text-white",
+        icon:Javascript,
+    },
+    BOOT:{
+        name:"Boostrap",
+        class:"bg-white text-white",
+        icon:Bootstrap,
+    },
+    NodeJs:{
+        name:"NodeJs",
+        class:"bg-white text-white",
+        icon:NodeJs,
+    },
+    Express:{
+        name:"Express",
+        class:"bg-white text-white",
+        icon:Express,
+    }
+}
+const PROYECTS = [
+    {
+        title:"CodeWave",
+        description:"Creé una web de películas con frontend interactivo y backend funcional para gestionar datos dinámicos.",
+        link:"https://github.com/123PaulGrillo",
+        github:"https://github.com/123PaulGrillo",
+        image:"/proyects/Page_Movies.png",
+        tags:[TAGS.HTML,TAGS.Javascript,TAGS.BOOT,TAGS.NodeJs,TAGS.Express],
+    },
+    {
+        title:"To-Do-List",
+        description:"Desarrollé una aplicación para gestionar tareas con un frontend intuitivo y funcionalidades dinámicas para agregar, editar y eliminar tareas.",
+        link:"https://github.com/123PaulGrillo",
+        github:"https://github.com/123PaulGrillo",
+        image:"/proyects/To_Do_List.jpg",
+        tags:[TAGS.HTML,TAGS.BOOT,TAGS.Javascript],
+    },
+{
+    title:"Login",
+    description:"Implementé un sistema de autenticación con un frontend responsivo y validación de credenciales en el cliente.",
+    link:"https://github.com/123PaulGrillo",
+    github:"https://github.com/123PaulGrillo",
+    image:"/proyects/Login.webp",
+    tags:[TAGS.HTML,TAGS.CSS,TAGS.Javascript],
+},
+]
+---
+{
+    
+    <div class="flex lg:justify-center overflow-x-auto p-4 flex-wrap gap-x-5">
+  {PROYECTS.map(({ image, title,description, tags }) => {
+    return (
+      <article class="w-[300px] h-[500px] flex flex-col bg-[#090909df] hover:bg-[rgba(255,255,255,0.1)] backdrop-blur-xl rounded-lg shadow-lg hover:cursor-pointer transition-all duration-300 p-5 ">
+        <div class="relative w-full h-[200px]">
+    <img
+      class="rounded-lg object-cover w-full h-[180px]"
+      src={image}
+      alt={`Captura de pantalla del proyecto ${title}`}
+    />
+  </div>
+        <div>
+          <h3 class="text-sky-400/100 font-semibold text-lg mb-2 mt-2">
+            {title}
+          </h3>
+          <p class="prettier mb-2 text-gray-400">{description}</p>
+          <ul class="flex gap-x-3 flex-wrap">
+            {tags.map((tag) => (
+              <li class="mb-2 flex gap-x-1 items-center text-gray-400">
+                <tag.icon class="size-4"></tag.icon>
+                {tag.name}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </article>
+    );
+  })}
+</div>
+

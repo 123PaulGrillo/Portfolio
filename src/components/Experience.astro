@@ -1,0 +1,34 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+
+const EXPERINCE = [
+    {
+        date: 'Octubre 2023 - Actualmente',
+        title: 'Ingeniero de Soporte TI',
+        description:
+        'Especializado en la implementación y configuración de sistemas, mantenimiento de bases de datos y soporte técnico en campo, enfocado en la resolución de problemas tecnológicos y optimización de operaciones.'
+    },
+    {
+        date:"Junio 2022 - Agosto 2023",
+        title:'Ingeniero de Soporte Jr',
+        description:'Como Ingeniero Jr., me encargué de la administración y mantenimiento de la infraestructura de red, la configuración de switches y routers, y el cableado estructurado. Además, proporcioné soporte a usuarios y compañeros técnicos en campo para garantizar el rendimiento óptimo de los sistemas.'
+    },
+    {
+        date:'Marzo 2021 - Junio 2021',
+        title:'Desarrollador FrontEnd',
+        description:'Como Desarrollador Frontend, diseñé e implementé el sistema de gestión de calificaciones, creando interfaces intuitivas y funcionales. Realicé un análisis detallado de las necesidades del cliente y me encargué de mantenerlos informados a través de informes sobre los avances del proyecto, asegurando que se cumplieran los requisitos y expectativas.'
+    }
+]
+---
+<ol class="relative border-s border-gray-200 ml-2">                  
+    {
+        EXPERINCE.map(experiencie => {
+            return(
+            <li class="mb-10 ms-4">
+                <ExperienceItem {...experiencie} />
+            </li>)
+        })
+    }
+
+</ol>
+

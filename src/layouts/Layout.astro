@@ -1,0 +1,55 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+import Header from '../components/Header.astro';
+import "@fontsource-variable/onest";
+import Footer from '../components/Footer.astro';
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="https://png.pngtree.com/png-clipart/20230920/original/pngtree-programming-code-technology-logo-shape-sign-code-vector-png-image_12702879.png" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <div class="absolute top-0 z-[-2] h-screen w-screen bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
+    <Header />
+    <slot />
+    
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    color-scheme: light dark;
+  }
+
+  html, body {
+    height: 100%; /* Asegura que ocupen todo el alto */
+    margin: 0; /* Elimina márgenes por defecto */
+    font-family: "Onest Variable", system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: #090909df;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Hace que el body ocupe al menos el 100% de la pantalla */
+    position: relative; /* Necesario para que el fondo no interfiera con los elementos */
+  }
+
+  @media(prefers-reduce-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+</style>
