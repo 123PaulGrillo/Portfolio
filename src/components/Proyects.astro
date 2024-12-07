@@ -1,5 +1,4 @@
 ---
-import { promise } from "astro:schema";
 import HTML from "./icons/Html.astro";
 import CSS from "./icons/Css.astro";
 import Javascript from "./icons/JavaScript.astro";
@@ -68,7 +67,7 @@ const PROYECTS = [
 ---
 {
     
-    <div class="flex lg:justify-center overflow-x-auto p-4 flex-wrap gap-x-5">
+    <div class="flex lg:justify-center overflow-x-auto flex-wrap gap-x-5">
   {PROYECTS.map(({ image, title,description, tags }) => {
     return (
       <article class="w-[300px] h-[500px] flex flex-col bg-[#090909df] hover:bg-[rgba(255,255,255,0.1)] backdrop-blur-xl rounded-lg shadow-lg hover:cursor-pointer transition-all duration-300 p-5 ">
