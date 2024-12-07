@@ -1,21 +1,25 @@
 ---
 import Menu from "../components/icons/Menu.astro";
 ---
-<header class="flex justify-center items-center py-4 w-full xl:w-[1400px] mx-auto">
-   
-<nav class="flex flex-row gap-x-10 opacity-80 items-center">
-    <a href="#top" class="text-[#fff] sm:block hidden">Inicio</a>
-    <a href="#experiencia" class="text-[#fff] sm:block hidden">Experiencia</a>
-    <a href="#proyectos" class="text-[#fff] sm:block hidden">Proyectos</a>
-    <a href="#SobreMi" class="text-[#fff] sm:block hidden">Sobre Mi</a>
-    <a href="" class="sm:hidden block " id="menu-button"><Menu/></a>
-</nav>
+<header class="flex justify-between items-center py-4 px-7 w-full xl:w-[1400px] mx-auto">
+    <nav class="flex flex-row gap-x-10 opacity-80 items-center">
+      <!-- Enlaces de navegación visibles en pantallas grandes -->
+      <a href="#top" class="text-[#fff] sm:block hidden">Inicio</a>
+      <a href="#experiencia" class="text-[#fff] sm:block hidden">Experiencia</a>
+      <a href="#proyectos" class="text-[#fff] sm:block hidden">Proyectos</a>
+      <a href="#SobreMi" class="text-[#fff] sm:block hidden">Sobre Mi</a>
+      <a href="javascript:void(0)" class="sm:hidden block" id="menu-button">
+        <Menu />
+      </a>
+    </nav>
 
-<!-- <div id="menu-links" class="flex flex-col items-center space-y-4 bg-gray-800/40 p-2  absolute top-16 left-0 w-full sm:hidden backdrop-blur-md rounded-lg shadow-lg ">
-    <a href="#experiencia" class="text-[#fff]">Experiencia</a>
-    <a href="#proyectos" class="text-[#fff]">Proyectos</a>
-    <a href="#SobreMi" class="text-[#fff]">Sobre Mi</a>
-</div> -->
-</header>
-
-<!-- <script src="/src/scripts/main.js" defer></script> -->
+    <div id="menu-links" class="flex hidden flex-col items-center space-y-4 bg-gray-900/70 p-4 absolute top-16 left-0 w-full sm:hidden backdrop-blur-md rounded-lg shadow-lg">
+      <a href="#top" class="text-[#fff]">Inicio</a>
+      <a href="#experiencia" class="text-[#fff]">Experiencia</a>
+      <a href="#proyectos" class="text-[#fff]">Proyectos</a>
+      <a href="#SobreMi" class="text-[#fff]">Sobre Mi</a>
+    </div>
+  </header>
+  
+  <script src="/src/scripts/main.js" defer></script>
+  
