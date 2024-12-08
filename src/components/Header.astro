@@ -1,28 +1,30 @@
 ---
 import Menu from "../components/icons/Menu.astro";
 ---
+
 <header class="flex justify-center items-center py-4 px-7 w-full xl:w-[1400px] mx-auto">
-    <nav class="flex flex-row gap-x-10 opacity-80 items-center">
-      <!-- Enlaces de navegación visibles en pantallas grandes -->
-      <a href="#top" class="text-[#fff] sm:block hidden">Inicio</a>
-      <a href="#experiencia" class="text-[#fff] sm:block hidden">Experiencia</a>
-      <a href="#proyectos" class="text-[#fff] sm:block hidden">Proyectos</a>
-      <a href="#SobreMi" class="text-[#fff] sm:block hidden">Sobre Mi</a>
-      <a href="javascript:void(0)" class="sm:hidden block" id="menu-button">
-        <Menu />
-      </a>
-    </nav>
+  <nav class="flex flex-row gap-x-10 opacity-80 items-center">
+    <!-- Enlaces de navegación visibles en pantallas grandes -->
+    <a href="#top" class="text-[#fff] sm:block hidden">Inicio</a>
+    <a href="#experiencia" class="text-[#fff] sm:block hidden">Experiencia</a>
+    <a href="#proyectos" class="text-[#fff] sm:block hidden">Proyectos</a>
+    <a href="#SobreMi" class="text-[#fff] sm:block hidden">Sobre Mi</a>
+    
+    <!-- Botón de menú hamburguesa para pantallas pequeñas -->
+    <a href="javascript:void(0)" class="sm:hidden block" id="menu-button">
+      <Menu />
+    </a>
+  </nav>
 
-    <div
-  id="menu-links"
-  class="hidden flex-col items-center space-y-4 bg-gray-900/70 p-4 absolute top-16 left-0 w-full sm:hidden backdrop-blur-md rounded-lg shadow-lg"
->
-  <a href="#experiencia" class="text-[#fff]">Experiencia</a>
-  <a href="#proyectos" class="text-[#fff]">Proyectos</a>
-  <a href="#SobreMi" class="text-[#fff]">Sobre Mi</a>
-</div>
+  <!-- Menú hamburguesa oculto inicialmente -->
+  <div
+    id="menu-links"
+    class="hidden flex-col items-center space-y-4 bg-gray-900/70 p-4 absolute top-16 left-0 w-full sm:hidden backdrop-blur-md rounded-lg shadow-lg"
+  >
+    <a href="#experiencia" class="text-[#fff]">Experiencia</a>
+    <a href="#proyectos" class="text-[#fff]">Proyectos</a>
+    <a href="#SobreMi" class="text-[#fff]">Sobre Mi</a>
+  </div>
+</header>
 
-  </header>
-  
-  <script src="/src/scripts/main.js" defer></script>
-  
+<script src="/src/scripts/main.js" defer></script>
