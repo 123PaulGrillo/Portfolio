@@ -3,8 +3,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuLinks = document.getElementById("menu-links");
 
   menuButton.addEventListener("click", () => {
-    menuLinks.classList.toggle("hidden"); // Muestra/oculta el menú
-    menuLinks.classList.toggle("translate-y-0");
-    menuLinks.classList.toggle("opacity-100");
+    if (menuLinks.classList.contains("hidden")) {
+      menuLinks.classList.remove("hidden");
+      menuLinks.classList.add("flex");
+    } else {
+      menuLinks.classList.remove("flex");
+      menuLinks.classList.add("hidden");
+    }
   });
 });
