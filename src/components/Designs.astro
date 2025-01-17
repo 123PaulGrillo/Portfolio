@@ -1,0 +1,120 @@
+<script>
+  const PROYECTS = [
+    {
+      link: "https://github.com/123PaulGrillo",
+      image: "/proyects/BusApp.png",
+    },
+    {
+      link: "https://github.com/123PaulGrillo/simple-login-page",
+      image: "/proyects/GalaxyStoreRe.png",
+    },
+    {
+      link: "https://github.com/123PaulGrillo/Calculadora-de-Hipotecas.git",
+      image: "/proyects/HarleyApp.png",
+    },
+    {
+      link: "https://github.com/123PaulGrillo",
+      image: "/proyects/BusApp.png",
+    },
+    {
+      link: "https://github.com/123PaulGrillo/simple-login-page",
+      image: "/proyects/GalaxyStoreRe.png",
+    },
+    {
+      link: "https://github.com/123PaulGrillo/Calculadora-de-Hipotecas.git",
+      image: "/proyects/HarleyApp.png",
+    },
+    {
+      link: "https://github.com/123PaulGrillo",
+      image: "/proyects/BusApp.png",
+    },
+    {
+      link: "https://github.com/123PaulGrillo/simple-login-page",
+      image: "/proyects/GalaxyStoreRe.png",
+    },
+    {
+      link: "https://github.com/123PaulGrillo/Calculadora-de-Hipotecas.git",
+      image: "/proyects/HarleyApp.png",
+    },
+  ];
+
+  let carousel;
+  let scrollInterval;
+
+  function setupCarousel() {
+    carousel = document.getElementById("carousel");
+
+    // Validar que el carrusel existe
+    if (!carousel) {
+      console.error("El elemento con id 'carousel' no existe.");
+      return;
+    }
+
+    // Generar los elementos del carrusel dinámicamente
+    PROYECTS.forEach(({ link, image }) => {
+      const anchor = document.createElement("a");
+      anchor.href = link;
+      anchor.target = "_blank";
+      anchor.rel = "noopener noreferrer";
+      anchor.classList.add("w-[300px]", "flex-shrink-0", "bg-[#090909df]", "hover:bg-[rgba(255,255,255,0.1)]", "backdrop-blur-xl", "rounded-lg", "shadow-lg", "hover:cursor-pointer", "transition-all", "duration-300", "p-5");
+
+      const img = document.createElement("img");
+      img.classList.add("rounded-lg", "object-cover", "w-full");
+      img.src = image;
+      img.alt = "Project image";
+
+      anchor.appendChild(img);
+      carousel.appendChild(anchor);
+    });
+
+    // Duplicamos los elementos para crear el efecto de carrusel infinito
+    const carouselItems = Array.from(carousel.children);
+    carouselItems.forEach(item => {
+      const clone = item.cloneNode(true);
+      carousel.appendChild(clone);
+    });
+
+    // Iniciar el desplazamiento automático
+    startScrolling();
+  }
+
+  function startScrolling() {
+  const scrollWidth = carousel.children[0].offsetWidth + 20; // Incluye el gap
+  const totalWidth = carousel.scrollWidth;
+  
+  // Hacemos el scroll cada 30ms para lograr un movimiento más rápido
+  scrollInterval = setInterval(() => {
+    const currentPosition = carousel.scrollLeft;
+
+    if (currentPosition >= totalWidth / 2) {
+      carousel.scrollLeft = 0; // Reinicia el scroll cuando llegamos a la mitad
+    } else {
+      carousel.scrollLeft += 1; // Mueve el scroll de manera constante
+    }
+  }, 30); // Ajusta el intervalo para hacerlo más rápido
+}
+
+
+  window.addEventListener("load", setupCarousel);
+</script>
+
+<style>
+  #carousel {
+    display: flex;
+    overflow-x: hidden; /* Ocultar el desbordamiento horizontal */
+  }
+
+  #carousel a {
+    flex-shrink: 0;
+  }
+</style>
+
+<div class="relative w-full">
+  <!-- Carrusel -->
+  <div
+    id="carousel"
+    class="flex overflow-x-scroll gap-5 scroll-smooth no-scrollbar"
+  >
+    <!-- Las tarjetas se generan dinámicamente aquí -->
+  </div>
+</div>

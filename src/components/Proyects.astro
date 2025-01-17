@@ -5,6 +5,8 @@ import Javascript from "./icons/JavaScript.astro";
 import Bootstrap from "./icons/Bootstrap.astro";
 import NodeJs from "./icons/NodeJs.astro";
 import Express from "./icons/Express.astro";
+import AstroIcon from "./icons/AstroIcon.astro";
+import Tailwind from "./icons/Tailwind.astro";
 
 const TAGS ={
     HTML:{
@@ -36,6 +38,16 @@ const TAGS ={
         name:"Express",
         class:"bg-white text-white",
         icon:Express,
+    },
+    AstroIcon:{
+        name:"AstroIcon",
+        class:"bg-white text-white",
+        icon:AstroIcon,
+    },
+    Tailwind:{
+        name:"Tailwind",
+        class:"bg-white text-white",
+        icon:Tailwind,
     }
 }
 const PROYECTS = [
@@ -65,17 +77,17 @@ const PROYECTS = [
 },
 {
   title:"Calculator",
-  description: "Una desarrollo interactivo construida con Astro para su generación eficiente, Tailwind CSS para estilizar componentes con un diseño moderno y receptivo, y JavaScript para manejar la lógica de cálculo en el cliente.",
+  description: "Calculadora de hipotecas interactiva creada con Astro, TailwindCSS y JavaScript, optimizada para rendimiento y usabilidad.",
   link:"https://github.com/123PaulGrillo/Calculadora-de-Hipotecas.git",
   github:"https://github.com/123PaulGrillo/Calculadora-de-Hipotecas.git",
   image:"proyects/Calculator.jpg",
-  tags:[TAGS.HTML,TAGS.CSS,TAGS.Javascript],
+  tags:[TAGS.AstroIcon,TAGS.Tailwind,TAGS.Javascript],
 }
 ]
 ---
 {
     
-    <div class="flex lg:justify-center overflow-x-auto flex-wrap gap-x-5">
+    <div class="flex lg:justify-between overflow-x-auto flex-wrap gap-x-5">
   {PROYECTS.map(({ image, title, description, tags, link }) => {
     return (
       <a

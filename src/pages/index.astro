@@ -12,7 +12,9 @@ import Code from "../components/icons/Code.astro";
 import Proyects from '../components/Proyects.astro';
 import SobreMi from "../components/SobreMi.astro";
 import Footer from "../components/Footer.astro";
-
+import Designs from '../components/Designs.astro';
+import Figma from "../components/icons/Figma.astro";
+import ContainerCarousell from "../components/ContainerCarousell.astro";
 ---
 
 <Layout title="Portfolio || Ing.Vicencio Grado">
@@ -48,9 +50,18 @@ paul-vicencio-grado
 			<h2 class="text-2xl font-semibold mb-6 flex justify-left gap-x-1 items-center text-[#fff]">
 			<Code class="size-6  text-[#fff]"></Code>Proyectos</h2>
 		</Container>
-			<Proyects class=" bg-[#000]"></Proyects>
+		<Container>
 
+			<Proyects class=" bg-[#000]"></Proyects>
+		</Container>
 	
+		<Container id="diseños">
+			<h2 class="text-2xl font-semibold mb-6 flex justify-left gap-x-1 items-center text-[#fff]">
+			<Figma class="size-6  text-[#fff]"></Figma>Diseños</h2>
+		</Container>
+		<ContainerCarousell>
+			<Designs class=" bg-[#000]"></Designs>
+		</ContainerCarousell>
 	</section>
 	<Container id="SobreMi" class="mt-24 pb-24">
 			<SobreMi class=" bg-[#000]">
