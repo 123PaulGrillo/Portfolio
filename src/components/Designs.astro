@@ -67,36 +67,53 @@
       carousel.appendChild(anchor);
     });
 
-    // Duplicamos los elementos para crear el efecto de carrusel infinito
-    const carouselItems = Array.from(carousel.children);
-    const item = document.querySelector('.elemento'); // Asegúrate de que este selector apunte a un nodo válido.
-if (item) {
-  const clone = item.cloneNode(true);
-} else {
-  console.error('Elemento no encontrado');
-}
-
+    // Esperar a que el DOM esté completamente actualizado antes de duplicar los elementos
+    setTimeout(() => {
+      duplicateItems();
+    }, 0); // Ejecutar la duplicación después de que se haya actualizado el DOM
 
     // Iniciar el desplazamiento automático
     startScrolling();
   }
 
-  function startScrolling() {
-  const scrollWidth = carousel.children[0].offsetWidth + 20; // Incluye el gap
-  const totalWidth = carousel.scrollWidth;
-  
-  // Hacemos el scroll cada 30ms para lograr un movimiento más rápido
-  scrollInterval = setInterval(() => {
-    const currentPosition = carousel.scrollLeft;
+  // Función para duplicar los elementos del carrusel
+  function duplicateItems() {
+    const carouselItems = Array.from(carousel.children);
 
-    if (currentPosition >= totalWidth / 2) {
-      carousel.scrollLeft = 0; // Reinicia el scroll cuando llegamos a la mitad
+    if (carouselItems.length > 0) {
+      carouselItems.forEach(item => {
+        if (item instanceof HTMLElement) { // Verificar que item sea un nodo válido (HTMLElement)
+          const clone = item.cloneNode(true); // Clonamos el elemento
+          carousel.appendChild(clone); // Añadir el clon al final
+        } else {
+          console.error("Elemento no es un nodo válido:", item);
+        }
+      });
     } else {
-      carousel.scrollLeft += 1; // Mueve el scroll de manera constante
+      console.error("No se encontraron elementos en el carrusel.");
     }
-  }, 30); // Ajusta el intervalo para hacerlo más rápido
-}
+  }
 
+  function startScrolling() {
+    const scrollWidth = carousel.children[0].offsetWidth + 20; // Incluye el gap
+    const totalWidth = carousel.scrollWidth;
+
+    // Verifica si la pantalla es suficientemente grande para permitir desplazamiento automático
+    const isMobile = window.innerWidth < 768;
+
+    if (!isMobile) {
+      // Desplazamiento automático cada 30ms para lograr un movimiento más rápido
+      scrollInterval = setInterval(() => {
+        const currentPosition = carousel.scrollLeft;
+
+        if (currentPosition >= totalWidth / 2) {
+          carousel.scrollLeft = 0; // Reinicia el scroll cuando llegamos a la mitad
+        } else {
+          carousel.scrollLeft += 1; // Mueve el scroll de manera constante
+        }
+      }, 30); // Ajusta el intervalo para hacerlo más rápido
+    }
+  }
 
   window.addEventListener("load", setupCarousel);
 </script>
@@ -109,6 +126,16 @@ if (item) {
 
   #carousel a {
     flex-shrink: 0;
+  }
+
+  #carousel img {
+    width: 100%; /* Asegúrate de que las imágenes no se desborden */
+  }
+
+  @media (max-width: 768px) {
+    #carousel {
+      -webkit-overflow-scrolling: touch; /* Permitir scroll suave en móviles */
+    }
   }
 </style>
 
