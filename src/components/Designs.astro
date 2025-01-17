@@ -68,14 +68,14 @@
     });
 
     // Duplicamos los elementos para crear el efecto de carrusel infinito
-    const carouselItems = Array.from(carousel.children);
-    carouselItems.forEach(item => {
-      const clone = item.cloneNode(true);
-      carousel.appendChild(clone); // Añadir el clon al final
-    });
+    const carouselItems = Array.from(carousel.children) as HTMLElement[]; // Convertimos a un array de HTMLElement
+carouselItems.forEach(item => {
+  const clone = item.cloneNode(true);
+  carousel.appendChild(clone); // Añadir el clon al final
+});
 
-    // Iniciar el desplazamiento automático
-    startScrolling();
+// Iniciar el desplazamiento automático
+startScrolling();
   }
 
   function startScrolling() {
