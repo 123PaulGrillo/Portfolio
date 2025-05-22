@@ -7,6 +7,11 @@ import NodeJs from "./icons/NodeJs.astro";
 import Express from "./icons/Express.astro";
 import AstroIcon from "./icons/AstroIcon.astro";
 import Tailwind from "./icons/Tailwind.astro";
+import NestJS from './icons/NestJS.astro'
+import Typescript from './icons/Typescript.astro';
+import TypeORM from './icons/TypeORM.astro';
+import PostgreSQL from './icons/PostgreSQL.astro';
+import Swagger from './icons/Swagger.astro';
 
 const TAGS ={
     HTML:{
@@ -40,7 +45,7 @@ const TAGS ={
         icon:Express,
     },
     AstroIcon:{
-        name:"AstroIcon",
+        name:"Astro",
         class:"bg-white text-white",
         icon:AstroIcon,
     },
@@ -48,9 +53,42 @@ const TAGS ={
         name:"Tailwind",
         class:"bg-white text-white",
         icon:Tailwind,
+    },
+    NestJS: {
+      name:'NestJS',
+      class:"text-white bg-white",
+      icon:NestJS
+    },
+    Typescript: {
+      name: 'Typescript',
+      class: 'text-white',
+      icon: Typescript
+    },
+    TypeORM: {
+      name: 'TypeORM',
+      class: 'bg-white text-white',
+      icon: TypeORM
+    },
+    PostgreSQL: {
+      name: 'PostgreSQL',
+      class: 'bg-white text-white',
+      icon: PostgreSQL
+    },
+    Swagger: {
+      name: 'Swagger',
+      class: 'bg-white text-white',
+      icon: Swagger
     }
 }
 const PROYECTS = [
+    {
+        title:'API Ecommerce-Food', 
+        description: 'API para Ecommerce de comida donde se implementó un sistema seguro de autenticación de usuarios, incluyendo registro e inicio de sesión.',
+         link:"https://github.com/123PaulGrillo",
+        github:"https://github.com/123PaulGrillo",
+        image: '/proyects/Ecommerce.png',
+        tags:[TAGS.NestJS,TAGS.Typescript,TAGS.TypeORM,TAGS.NodeJs,TAGS.Express, TAGS.PostgreSQL, TAGS.Swagger]
+    },
     {
         title:"CodeWave",
         description:"Creé una web de películas con frontend interactivo y backend funcional para gestionar datos dinámicos.",
